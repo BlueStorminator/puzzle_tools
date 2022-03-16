@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Caesar Rotations
+{% endblock %}
+
+
+{% block heading %}
+Caesar Rotations
+{% endblock %}
+
+{% block main %}
+<div class="words">
+    <p>Enter a string. Non-alphabetic characters will be ignored. <br>All 26 Caesar rotations will be returned.</p>
+
+    <form action="/words/caesar" method="POST">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto textbox" id="caes_string" name="caes_string" placeholder="Enter a string" type="text" value="" >
+        <button class="btn btn-primary" type="submit" style="display:none"></button>
+    </div>
+    </form>
+
+    {{error}}
+
+    {% if keytitle=="ROT" %}
+    <table class="CaesarHead">
+        <thead>
+        <span class="CaesarHead">{{input}}</span>
+        </thead>
+    </table>
+{% if length > 0 %}
+   <table class="Caesar" id="possengwords">
+            <th class="Caesar">Possible English words with this rotation pattern</th>
+            <tbody>
+                    {% for i in english %}
+                    <tr class="Caesar"></tr>
+                    <td class="Caesar">{{i}}</td>
+
+                    {% endfor %}
+            </tbody>
+
+        </table>
+
+{% endif %}
+
+    <table class="Caesar" id="cresults">
+            <thead class="Caesar">
+               <tr>
+                <th class="Caesar">{{keytitle}}</th>
+                <th class="Caesar">{{valuetitle}}</th>
+            </tr>
+            </thead>
+            <tbody class="Caesar">
+                    {% for t in output %}
+                        <tr class="Caesar">
+                        {% for i in t %}
+                            <td class="Caesar">{{ i }}</td>
+
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+            </tbody>
+        </table>
+
+    {% endif %}
+
+</div>
+
+
+{% endblock %}
+
+{% block footer %}
+{% if keytitle == 'ROT' %}
+<div>{{dictcite}}</div>
+{% endif %}
+{% endblock %}

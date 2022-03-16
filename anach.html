@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Anagram Comparison
+{% endblock %}
+
+{% block heading %}
+Anagram Comparison
+{% endblock %}
+
+{% block main %}
+<div class="words">
+    <p>Enter 2 strings of characters for comparison.  Non-alphabetic characters will be ignored.</p>
+
+    <form action="/words/anach" method="POST">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto textbox" id="sc1" name="sc1" placeholder="First String" type="text" value="" >
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto textbox" id="sc1" name="sc2" placeholder="Second String" type="text" value="" >
+        <button class="btn btn-primary" type="submit" style="display:none"></button>
+    </div>
+        <p>{{res1}}</p>
+        <p>{{res2}}</p>
+        <p>{{res3}}</p>
+    </form>
+
+</div>
+
+
+{% endblock %}

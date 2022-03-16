@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Letter Representations
+{% endblock %}
+
+{% block heading %}
+Letter Representations
+{% endblock %}
+
+{% block main %}
+<div class="letters">
+
+
+   <form action="/words/letrep" method="post">
+
+        <p>Choose which information should be displayed then enter.<p>
+           <div class="check">
+            <label class="check" for="letterl"><input class="check" type="checkbox" name="letlist" value="letter" id="letterl" checked><span class="check"> Letter</span></label>
+            <label class="check" for="numberl"><input class="check" type="checkbox" name="letlist" value="number" id="numberl"><span class="check"> Number</span></label>
+            <label class="check" for="binaryl"><input class="check" type="checkbox" name="letlist" value="binary" id="binaryl"> <span class="check">Binary</span></label>
+            <label class="check" for="trinaryl"><input class="check" type="checkbox" name="letlist" value="trinary" id="trinaryl"> <span class="check">Trinary</span></label>
+            <label class="check" for="octall"><input class="check" type="checkbox" name="letlist" value="octal" id="octall"> <span class="check">Octal</span></label>
+            <label class="check" for="hexl"><input class="check" type="checkbox" name="letlist" value="hex" id="hexl"> <span class="check">Hex</span></label>
+            <label class="check" for="morsel"><input class="check" type="checkbox" name="letlist" value="morse" id="morsel"> <span class="check">Morse</span></label><br>
+            <label class="check" for="asciicl"><input class="check" type="checkbox" name="letlist" value="ascii_capital" id="asciicl"> <span class="check">ASCII (capital)</span></label>
+            <label class="check" for="asciisl"><input class="check" type="checkbox" name="letlist" value="ascii_small" id="asciisl"> <span class="check">ASCII (small)</span></label>
+            <label class="check" for="phoneticl"><input class="check" type="checkbox" name="letlist" value="phonetic" id="phoneticl"> <span class="check">Phonetic</span></label>
+            <label class="check" for="scrabv"><input class="check" type="checkbox" name="letlist" value="scrabble_value" id="scrabv"> <span class="check">Scrabble value</span></label>
+            <label class="check" for="scrabf"><input class="check" type="checkbox" name="letlist" value="scrabble_frequency" id="scrabf"> <span class="check">Scrabble frequency</span></label>
+        </div>
+             <div class="mb-3">
+             <button class="btn btn-primary" type="submit" style="display:none"></button>
+        </div>
+    </form>
+
+    <table>
+         <thead class="lettable">
+               <tr>
+                   {% for item in selection %}
+                <th class="lettable">{{item}}</th>
+                   {% endfor %}
+            </tr>
+            </thead>
+         <tbody class="lettable">
+                    {% for t in result %}
+                        <tr class="lettable">
+                        {% for i in t %}
+                            <td class="lettable">{{ i }}</td>
+
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+            </tbody>
+    </table>
+
+</div>
+{% endblock %}
+

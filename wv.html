@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Word Value
+{% endblock %}
+
+{% block heading %}
+Word Value Calculator
+{% endblock %}
+
+{% block main %}
+<div class="words">
+
+    <form action="/words/wv" method="post">
+        <div class="mb-3">
+        <p>Choose your value scale then enter your word.  Non-alphabetic characters will be ignored.</p>
+        <div class="rad">
+            <label class="rad"><input class="rad" type="radio" name="scale" value="regular" id="regular" checked><span class="rad"> A-1 to Z-26</span></label>
+            <label class="rad" for="reverse"><input class="rad" type="radio" name="scale" value="reverse" id="reverse"> <span class="rad">A-26 to Z-1</span></label>
+            <label class="rad" for="scrabble"><input class="rad" type="radio" name="scale" value="scrabble" id="scrabble"> <span class="rad">Scrabble Values</span></label>
+            <label class="rad" for="allthree"><input class="rad" type="radio" name="scale" value="allthree" id="allthree"><span class="rad"> All</span></label>
+        </div>
+            <label></label><label for="wvin"></label><input autocomplete="off" autofocus class="form-control mx-auto w-auto textbox" id="wvin" name="wv" placeholder="Enter your word here" type="text" value="">
+            <button class="btn btn-primary" type="submit" style="display:none"></button>
+        </div>
+     </form>
+
+    {{error}}
+
+    {% if wvword != '' %}
+    <table class="wv" id="wvresults">
+            <thead class="wv">
+            <span class="wv">{{wvword}}</span>
+            </thead>
+            <tbody class="wv">
+                        <tr>
+                            <th>Scale</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            {% if scale == 'allthree' or scale == 'regular' %}
+                            <td class="wv"> A1/Z26</td>
+                            <td class ="wv">{{wvvalue}}</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if scale == 'allthree' or scale == 'reverse' %}
+                            <td class="wv"> A26/Z1</td>
+                            <td class="wv">{{reversewvvalue}}</td>
+                            {% endif %}
+                        </tr>
+                        <tr>
+                            {% if scale == 'allthree' or scale == 'scrabble' %}
+                            <td class="wv"> Scrabble </td>
+                            <td class ="wv">{{ wvscrabble}}</td>
+                            {% endif %}
+                        </tr>
+
+            </tbody>
+        </table>
+    {% endif %}
+
+
+</div>
+
+{% endblock %}
+{% block footer %}
+
+
+{% endblock %}

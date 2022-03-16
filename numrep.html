@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Number Representation
+{% endblock %}
+
+
+{% block heading %}
+Number Representations
+{% endblock %}
+
+{% block main %}
+<div class="numbers">
+
+
+   <form action="/numbers/numrep" method="post">
+
+        <p>Choose which information should be displayed then enter.<p>
+           <div class=check">
+            <label class="check" for="numbern"><input class="check" type="checkbox" name="numlist" value="number" id="numbern" checked><span class="check">Number</span></label>
+            <label class="check" for="binaryn"><input class="check" type="checkbox" name="numlist" value="binary" id="binaryn"><span class="check"> Binary</span></label>
+            <label class="check" for="trinaryn"><input class="check" type="checkbox" name="numlist" value="trinary" id="trinaryn"><span class="check"> Trinary</span></label>
+            <label class="check" for="octaln"><input class="check" type="checkbox" name="numlist" value="octal" id="octaln"> <span class="check">Octal</span></label>
+            <label class="check" for="hexn"><input class="check" type="checkbox" name="numlist" value="hex" id="hexn"> <span class="check">Hex</span></label>
+            <label class="check" for="morsen"><input class="check" type="checkbox" name="numlist" value="morse" id="morsen"><span class="check"> Morse</span></label> <br>
+            <label class="check" for="asciin"><input class="check" type="checkbox" name="numlist" value="ascii" id="asciin"><span class="check"> ASCII</span></label>
+            <label class="check" for="keyboardn"><input class="check" type="checkbox" name="numlist" value="keyboard_char" id="keyboardn"><span class="check"> Keyboard symbol</span></label>
+            <label class="check" for="romann"><input class="check" type="checkbox" name="numlist" value="roman" id="romann"> <span class="check">Roman</span></label>
+            <label class="check" for="romanxn"><input class="check" type="checkbox" name="numlist" value="roman_x_10" id="romanxn"><span class="check"> Roman x 10</span></label>
+        </div>
+             <div class="mb-3">
+             <button class="btn btn-primary" type="submit" style="display:none"></button>
+        </div>
+    </form>
+
+    <table>
+         <thead class="numtable">
+               <tr>
+                   {% for item in selection %}
+                <th class="numtable">{{item}}</th>
+                   {% endfor %}
+            </tr>
+            </thead>
+         <tbody class="numtable">
+                    {% for t in result %}
+                        <tr class="numtable">
+                        {% for i in t %}
+                            <td class="numtable">{{ i }}</td>
+
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+            </tbody>
+    </table>
+
+</div>
+{% endblock %}

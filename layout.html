@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <!-- from getbootstrap.com/docs -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+
+        <!-- https://favicon.io/emoji-favicons/toolbox/  tab appearance-->
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+        <link rel="icon" href="/static/faviconToolbox.ico" >
+
+        <!-- only a main css sheet now but folder for later enhancement with custom.css -->
+        <link rel="stylesheet" href="/static/css/main.css" >
+
+        <!-- tab heading fills in with jinja code -->
+        <title>Puzzle Tools: {% block title %}{% endblock %}</title>
+
+        <script>
+            $(function(){
+                // on click, add styling to reference list item
+                //https://stackoverflow.com/questions/19085746/how-can-i-toggle-between-any-css-property-on-click-using-javascript-or-jquery
+                $('summary').click(function(){
+                    $(this).toggleClass('bold'); // on click, toggle the class of the element clicked
+                    })
+                  });
+
+    //        $(function(){
+    //            $('button.openbtn').click(function() {
+    //                $('div.sidebar').toggle();
+     //           })
+    //        });
+
+            function openNav() {
+                document.getElementById("leftmenu").style.width = "220px";
+                document.getElementById("menuslidebutton").style.marginLeft = "210px";
+                }
+
+            function closeNav()  {
+                 document.getElementById("leftmenu").style.width = "0";
+                 document.getElementById("menuslidebutton").style.marginLeft = "0";
+                 }
+
+        </script>
+    </head>
+
+<body>
+
+<!-- top menu - bootstrap with pros and cons -->
+<!-- trouble with dropdown on narrow screen - for later enhancement - use left side menu as needed -->
+<nav class="navbar sticky-top navbar-expand-sm navbar-dark" style="background-color: #394F8A">
+  <div class="container-fluid" role="navigation">
+      <button class="openbtn" onclick="openNav()">Menu</button> <!-- button to operate side menu -->
+      <a class="navbar-brand" href="/">
+        <img src="/static/apple-touch-icon.png" width="30" height="30" class="d-inline-block align-bottom toolpic"  alt="toolbox icon">
+        <span class="brand1">Puzzle </span><span class="brand2">Tools </span><small class="brand3">by </small><small class="brand4">Tam</small></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+         <div class="collapse navbar-collapse" role="navigation">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/words" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Words
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/words/wv">Word Value</a></li>
+            <li><a class="dropdown-item" href="/words/anach">Anagram Comparison</a></li>
+            <li><a class="dropdown-item" href="/words/caesar">Caesar Rotations</a></li>
+            <li><a class="dropdown-item" href="/words/letrep">Letter Representations</a></li>
+          </ul>
+        </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/numbers" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Numbers
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/numbers/ffnum">Fun Facts</a></li>
+            <li><a class="dropdown-item" href="/numbers/numrep">Number Representations</a></li>
+          </ul>
+        </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="/extras" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Extras
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/extras/reference">Reference Tables</a></li>
+            <li><a class="dropdown-item" href="/extras/links">Links</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    </div>
+</nav>
+
+ <!-- left side menu -->
+ <div class="wrapper d-flex">
+    <div class="sidebar" id="leftmenu">
+        <a href="#" class="closebtn" id="closex" onclick="closeNav()">X</a>
+        <a href="/words" class="sidehead px-3"><span>Words</span></a>
+        <ul>
+            <li><a href="/words/wv" class="small">Word Value Calculator</a></li>
+            <li><a href="/words/anach" class="small">Anagram Checker</a></li>
+            <li><a href="/words/caesar" class="small">Caesar Rotations</a></li>
+            <li><a href="/words/letrep" class="small">Letter Representations</a></li>
+        </ul>
+        <a href="/numbers" class="sidehead px-3"><span>Numbers</span></a>
+        <ul>
+            <li><a href="/numbers/ffnum" class="small">Fun Facts</a></li>
+            <li><a href="/numbers/numrep" class="small">Number Representations</a></li>
+        </ul>
+        <a href="/extras" class="sidehead px-3"><span>Extras</span></a>
+        <ul>
+            <li><a href="/extras/reference" class="small">Reference Tables</a></li>
+            <li><a href="/extras/links" class="small">Links</a></li>
+        </ul>
+    </div>
+</div>
+
+
+ <div id="menuslidebutton">  <!-- menu close button at top left - all content in central division -->
+     <!-- this div goes to end of page-->
+
+ <!-- page by page heading -->
+ <h2 class="container-fluid text-center">{% block heading %}{% endblock %}</h2>
+
+ <main class="container-fluid text-center">
+            {% block main %}
+            {% endblock %}
+
+ </main>
+
+ <footer class="mb-5 small text-left text-muted">
+            {% block footer %}
+            {% endblock %}
+
+ </footer>
+
+ </div>  <!-- end button slider div -->
+
+
+</body>
+</html>

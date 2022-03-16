@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+Number Facts
+{% endblock %}
+
+{% block heading %}
+Fun Facts About Numbers
+{% endblock %}
+
+{% block main %}
+<div class="numbers">
+
+
+   <form action="/numbers/ffnum" method="post">
+        <div class="mb-3">
+            <p>Check if your number is prime, a perfect square, a perfect cube, a triangular number or
+                a Fibonacci number.<br> Factors of a non-prime number will be listed.</p>
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto textbox" id="plainnum" name="plainnum"
+                   placeholder="Enter (base 10) number" type="text" pattern="\[0-9]+" value="" size="24" >
+        </div>
+        <button class="btn btn-primary" type="submit" style="display:none"></button>
+
+       <p></p>
+
+    </form>
+
+    {{output}}
+
+    {% if num != False %}
+    <table class="numtab">
+            <thead>
+            <span class="numtab">Number {{num}}</span>
+            </thead>
+
+        {% if prime %}
+        <p>Is prime{% if num != 1 %} (has only 2 factors: 1 and {{num}}){% endif %}.</p>
+        {% endif %}
+
+        {% if prime == False %}
+        <p>Has {{faclistlen}} factors: <span> {% for digit in faclist %}{{digit}}, {% endfor %}</span>
+        and {{faclistlast}}. </p>
+        {% endif %}
+
+        {% if square %}
+        <p>Is a perfect square.</p>
+        {% endif %}
+
+        {% if cube %}
+        <p>Is a perfect cube.</p>
+        {% endif %}
+
+        {% if fib %}
+        <p>Is a Fibonacci number.</p>
+        {% endif %}
+
+        {% if triangular %}
+        <p>Is a triangular number.</p>
+        {% endif %}
+
+    {% endif %}
+</div>
+{% endblock %}
