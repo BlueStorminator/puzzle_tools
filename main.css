@@ -1,0 +1,349 @@
+/* haven't succeeded with marking active menu item in top nav bar */
+/*.nav-item .active a{
+    text-decoration: underline;
+    background-color: darkblue;
+    border-radius: 25px;
+}
+color scheme https://mycolor.space/?hex=%23394F8A&sub=1
+ */
+
+/* Size for brand */
+nav .navbar-brand {
+    font-size: x-large;
+}
+
+nav.navbar-brand {
+    margin: 8px;
+}
+
+/* Colors for brand - could have 4 separate colors (only 3 for now) */
+nav .navbar-brand .brand1
+{
+    color: #C06972;
+}
+
+nav .navbar-brand .brand2
+{
+    color: #C06972;
+}
+
+nav .navbar-brand .brand3
+{
+    color: #A8AABC;
+}
+
+nav .navbar-brand .brand4
+{
+    color: #00B9B4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #BFCDFF;
+    color: black;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+    color: #394F8A;
+    padding: 2px;
+}
+
+h3 {
+    color: #873742;
+    background-color: #A8AABC;
+}
+
+a {
+    color: #008ABF;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+p {
+    padding: 0;
+    margin-bottom: 6px;
+}
+
+input {
+    text-align: left;
+}
+
+input.textbox  {
+    margin-top: 20px;
+ }
+
+label {
+    font-size: smaller;
+}
+
+input.check  {
+    width: 13px;
+    height: 13px;
+    padding: 20px;
+    margin: 0 3px 0 0;
+    vertical-align: center;
+    position: relative;
+    top: 3px;
+    accent-color: #394F8A;
+    float: left;
+    text-align: center;
+      }
+
+label.check  {
+    display: inline-block;
+    padding-left: 2px;
+    padding-right: 5px;
+    text-indent: 1px;
+    white-space: nowrap;
+    font-size: smaller;
+    margin: 0 10px 0 3px;
+    text-align: center;
+    }
+
+input.rad {
+    margin: 0 3px 0 0;
+    vertical-align: center;
+    position: relative;
+    top: 3px;
+    accent-color: #394F8A;
+    float: left;
+    text-align: center;
+}
+
+label.rad {
+    display: inline-block;
+    padding-left: 2px;
+    padding-right: 5px;
+    text-indent: 1px;
+    white-space: nowrap;
+    font-size: smaller;
+    margin: 0 10px 0 3px;
+    text-align: center;
+}
+
+input.check:checked + span.check {
+    font-weight: bold;
+}
+
+input.rad:checked + span.rad {
+    font-weight: bold;
+}
+
+.wrapper {
+    position: relative
+}
+
+/* sidebar
+adapted from https://bbbootstrap.com/snippets/bootstrap-fixed-responsive-left-sidebar-menu-34380762
+and https://www.w3schools.com/howto/howto_js_collapse_sidebar.asp*/
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 14px;}
+  .sidebar a {font-size: 16px;}
+}
+
+.sidebar {
+    position: fixed;
+    width: 0;  /* to start open, set this to 200+; to start closed set this to 0 */
+    height: 100%;
+    background: #A8AABC;
+    padding: 30px 0;
+    z-index: 1;
+    overflow-x: hidden;
+    transition: 0.2s;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 14px;
+    margin-left: 15px;
+    font-weight: bold;
+    color: #873742;
+    border: #873742 solid 2px;
+    padding: 0 3px 0 3px;
+}
+
+.closebtn:hover {
+    background-color: #FFF7D6;
+    color: #873742
+}
+
+.openbtn {
+    font-size: 10px;
+    cursor: pointer;
+    background-color: #394F8A;
+    color: #FFF7D6;
+    border-radius: 5px;
+    padding: 2px 4px;
+    margin-right: 10px;
+    border-right: 1px solid black;
+}
+
+.openbtn:hover  {
+
+    border-radius: 5px;
+    background-color: #00B9B4;
+    color: #394F8A;
+}
+
+/* side menu headings - word-numbers-extras */
+.sidehead {
+    color: #394F8A;
+    font-weight: bold
+   }
+
+.sidehead span:hover {
+    color: #FFF7D6;
+    background-color: #394F8A;
+    border-radius: 5px;
+}
+
+.sidebar ul li {
+    padding: 0
+}
+
+.sidebar ul li a {
+    color: #008ABF;
+    display: block
+}
+
+.sidebar ul li:hover {
+    color: #394F8A;
+    background: #FFF7D6;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+#menuslidebutton  {
+    transition: margin-left 0.2s;
+    padding: 16px;
+}
+
+/* word.txt file dictionary */
+#possengwords {
+    margin-bottom: 20px;
+}
+
+/* output texts above tables  */
+span.wv {
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: #A8AABC;
+    border-radius: 5px;
+}
+
+span.CaesarHead {
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color: #A8AABC;
+    border-radius: 5px;
+}
+
+span.numtab {
+    display: inline-block;
+    font-weight: bold;
+    padding: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    background-color: #A8AABC;
+    border-radius: 5px;
+}
+
+table {
+    empty-cells: hide;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+}
+
+th {
+    border: 2px solid black;
+    font-weight: bold;
+    height: 1rem;
+    padding: 5px;
+    background-color: #A8AABC;
+ }
+
+tr  {
+    border: 1px solid black;
+}
+
+td {
+    border: 1px solid black;
+    background-color: white;
+    height: 1rem;
+    padding: 3px;
+    text-align: center;
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+/* reference tables - extras - additional styling on click */
+summary {
+    font-weight: normal;
+}
+
+summary.bold {
+    font-weight: bold;
+    font-size: larger;
+    margin-top: 5px;
+    background-color: #A8AABC;
+    border-radius: 5px;
+}
+
+div.reference img {
+    margin-bottom: 20px;
+}
+
+div.home a {
+    font-size: x-large;
+}
+
+footer div {
+    border-top: 1px solid black;
+    margin-top: 100px;
+}
+
+footer p {
+    margin-left: 10px;
+}
+
+img.toolpic {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* to account for left margin with unordered list on the links page */
+/* other miscellaneous */
+span.linkshead {
+    padding-left: 30px;
+}
+
+p.links {
+    padding-left: 30px;
+}
+
+ul.links {
+    list-style: none;
+}
